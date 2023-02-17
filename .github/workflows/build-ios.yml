@@ -1,4 +1,4 @@
-name: Build APK
+name: Build iOS
 
 on:
   push:
@@ -25,11 +25,11 @@ jobs:
     - name: build Nuxt project
       run: npm run generate
 
-    - name: copy to Android project
+    - name: copy to iOS project
       run: npx cap sync
 
     - name: build iOS app
-      run: npx cap build ios
+      run: npx cap build --scheme iOS ios
 
     - name: rename apk
       working-directory: android/app/build/outputs/apk/debug/
